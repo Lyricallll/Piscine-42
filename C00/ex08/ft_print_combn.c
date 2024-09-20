@@ -6,7 +6,7 @@
 /*   By: agraille <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 09:46:29 by agraille          #+#    #+#             */
-/*   Updated: 2024/09/20 11:16:55 by agraille         ###   ########.fr       */
+/*   Updated: 2024/09/20 11:20:35 by agraille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,6 @@ void	ft_print_combn(int n)
 
 int	main(void)
 {
-	ft_print_combn(8);
+	ft_print_combn(9);
 	return (0);
 }
