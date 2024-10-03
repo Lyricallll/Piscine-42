@@ -6,30 +6,76 @@
 /*   By: agraille <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 08:08:21 by agraille          #+#    #+#             */
-/*   Updated: 2024/09/30 08:42:28 by agraille         ###   ########.fr       */
+/*   Updated: 2024/10/03 10:29:04 by agraille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <string.h>
-#include <stdio.h>
 
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void	*ft_print_memory(void *addr, unsigned int size)
+void	ft_puthex(unsigned long long n, int size)
 {
-	unsigned long	adresse;
-	int				i;
+	char	*hex;
+	char	buffer[size];
+	int		i;
+
+	hex = "0123456789abcdef";
+	i = size - 1;
+	while (i >= 0)
+	{
+		buffer[i] = hex[n % 16];
+		n /= 16;
+		i--;
+	}
+	write(1, buffer, size);
+}
+
+void	ft_print_hex_and_ascii(unsigned char *addr, unsigned int size)
+{
+	unsigned int	i;
 
 	i = 0;
-	if (size < 1)
-		return (0);
-	adresse = (unsigned long)addr;
+	while (i < 16)
+	{
+		if (i < size)
+			ft_puthex(addr[i], 2);
+		else
+			write(1, "  ", 2);
+		if (i % 2 == 1)
+			ft_putchar(' ');
+		i++;
+	}
+	i = 0;
+	while (i < size)
+	{
+		if (addr[i] >= 32 && addr[i] <= 126)
+			ft_putchar(addr[i]);
+		else
+			ft_putchar('.');
+		i++;
+	}
+}
 
-	return (0);
+void	ft_print_memory(void *addr, unsigned int size)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		ft_puthex((unsigned long long)(addr + i), 16);
+		write(1, ": ", 2);
+		if (size - i >= 16)
+			ft_print_hex_and_ascii((unsigned char *)addr + i, 16);
+		else
+			ft_print_hex_and_ascii((unsigned char *)addr + i, size - i);
+		ft_putchar('\n');
+		i += 16;
+	}
 }
 
 int	main(void)
