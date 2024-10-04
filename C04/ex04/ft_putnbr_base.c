@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agraille <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 07:10:47 by agraille          #+#    #+#             */
-/*   Updated: 2024/10/04 08:01:50 by agraille         ###   ########.fr       */
+/*   Created: 2024/10/04 08:07:59 by agraille          #+#    #+#             */
+/*   Updated: 2024/10/04 10:03:56 by agraille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <string.h>
+#include <unistd.h>
 
-char	*ft_strstr(char *str, char *to_find)
+int	ft_strlen(char *s)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
-	if (!*to_find)
-		return (str);
-	while (str[i] != '\0')
-	{
-		while (str[i + j] == to_find[j] && str[i + j])
-			j++;
-		if (to_find[j] == '\0')
-			return (str + i);
-		j = 0;
+	while (s[i])
 		i++;
-	}
-	return (0);
+	return (i);
+}
+
+void	ft_putnbr_base(int nbr, char *base)
+{
+	int	size;
+
+	size = ft_strlen(base);
+	printf("%d\n",size);
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc != 2)
+		return (0);
+	ft_putnbr_base(42, argv[1]);
 }
