@@ -6,7 +6,7 @@
 /*   By: agraille <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 08:07:59 by agraille          #+#    #+#             */
-/*   Updated: 2024/10/08 21:12:45 by agraille         ###   ########.fr       */
+/*   Updated: 2024/10/10 09:58:00 by agraille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	ft_putnbr_base(int nbr, char *base)
 	}
 	ft_putstr(i + 1, buffer);
 }
-
+// int min a gerer !
 int	main(int argc, char **argv)
 {
 	if (argc != 2)
