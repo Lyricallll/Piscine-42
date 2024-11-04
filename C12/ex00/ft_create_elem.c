@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_create_elem.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agraille <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/17 08:15:10 by agraille          #+#    #+#             */
-/*   Updated: 2024/07/17 15:04:01 by agraille         ###   ########.fr       */
+/*   Created: 2024/07/24 08:01:19 by agraille          #+#    #+#             */
+/*   Updated: 2024/07/24 11:29:33 by agraille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+#include <stdlib.h>
+#include "ft_list.h"
 
-# include <unistd.h>
+t_list	*ft_create_elem(void *data)
+{
+	t_list	*ptr;
 
-# define EVEN_MSG "I have an even number of arguments.\n"
-# define ODD_MSG "I have an odd number of arguments.\n"
-# define TRUE 1
-# define FALSE 0
-# define SUCCESS 0
-# define EVEN(nbr) (nbr % 2 == 0)
-
-typedef int	t_bool;
-
-#endif
+	ptr = malloc(sizeof(t_list));
+	ptr->data = data;
+	ptr->next = 0;
+	return (ptr);
+}

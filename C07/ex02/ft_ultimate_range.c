@@ -1,20 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agraille <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 07:10:47 by agraille          #+#    #+#             */
-/*   Updated: 2024/09/30 09:54:23 by agraille         ###   ########.fr       */
+/*   Created: 2024/07/15 18:04:29 by agraille          #+#    #+#             */
+/*   Updated: 2024/07/16 20:52:44 by agraille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_abs.h"
-#include <stdio.h>
+#include <stdlib.h>
 
-int	main(void)
+int	ft_ultimate_range(int **range, int min, int max)
 {
-	printf("TEST: %d\n", ABS(-55));
-	return (0);
+	int	i;
+	int	result;
+
+	i = 0;
+	result = max - min;
+	if (min >= max)
+	{
+		*range = NULL;
+		return (0);
+	}
+	*range = malloc(sizeof(int) * (max - min));
+	if (*range == NULL)
+		return (0);
+	while (min < max)
+	{
+		(*range)[i] = min;
+		min ++;
+		i++;
+	}
+	return (result);
 }

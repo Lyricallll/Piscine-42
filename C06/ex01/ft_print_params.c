@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agraille <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/17 08:15:10 by agraille          #+#    #+#             */
-/*   Updated: 2024/07/17 15:04:01 by agraille         ###   ########.fr       */
+/*   Created: 2024/07/11 16:20:41 by agraille          #+#    #+#             */
+/*   Updated: 2024/07/11 16:27:42 by agraille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+#include <unistd.h>
 
-# include <unistd.h>
+int	main(int argc, char **argv)
+{
+	int	i;
+	int	c;
 
-# define EVEN_MSG "I have an even number of arguments.\n"
-# define ODD_MSG "I have an odd number of arguments.\n"
-# define TRUE 1
-# define FALSE 0
-# define SUCCESS 0
-# define EVEN(nbr) (nbr % 2 == 0)
-
-typedef int	t_bool;
-
-#endif
+	c = 1;
+	i = 0;
+	while (argv[c] && argc > 0)
+	{
+		i = 0;
+		while (argv[c][i])
+		{
+			write(1, &argv[c][i], 1);
+			i++;
+		}
+		write(1, "\n", 1);
+		c++;
+	}
+}

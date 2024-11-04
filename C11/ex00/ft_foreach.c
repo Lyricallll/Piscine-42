@@ -1,27 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_foreach.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agraille <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/17 08:15:10 by agraille          #+#    #+#             */
-/*   Updated: 2024/07/17 15:04:01 by agraille         ###   ########.fr       */
+/*   Created: 2024/07/22 18:17:37 by agraille          #+#    #+#             */
+/*   Updated: 2024/07/23 10:16:35 by agraille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/*
+#include <unistd.h>
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+void	ft_putnbr(int nb)
+{
+	int	i;
+	char	nbr;
 
-# include <unistd.h>
+	if (nb > 9)
+		ft_putnbr(nb / 10);
+	nbr = nb % 10 + '0';
+	write(1, &nbr, 1);
+	write(1, " ", 1);
+}
+*/
+void	ft_foreach(int *tab, int length, void (*f) (int))
+{
+	int	i;
 
-# define EVEN_MSG "I have an even number of arguments.\n"
-# define ODD_MSG "I have an odd number of arguments.\n"
-# define TRUE 1
-# define FALSE 0
-# define SUCCESS 0
-# define EVEN(nbr) (nbr % 2 == 0)
+	i = 0;
+	while (i < length)
+	{
+		f(tab[i]);
+		i++;
+	}
+}
+/*
+int	main ()
+{
+	int	tab[] = {1, 2 ,3 ,4, 5, 6, 7 ,8 ,9 ,10};
+	int	size = 10;
 
-typedef int	t_bool;
-
-#endif
+	ft_foreach(tab,size,&ft_putnbr);
+}*/
