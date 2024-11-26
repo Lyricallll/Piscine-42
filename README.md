@@ -1,1 +1,1 @@
-# Piscine-42
+<img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTh5cnZrNno0M20yM2NwN2UxMXRwOTNlY2hudzNxZWYyZzZqcm1tZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bubqkrK3Sj9xnvRgEh/giphy.gif" alt="Texte alternatif" width="800" height="400" />
